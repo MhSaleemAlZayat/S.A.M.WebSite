@@ -845,18 +845,56 @@
             if (userDropdown) userDropdown.classList.remove('show');
         }
 
-        function performLogout() {
+        async function performLogout() {
             closeModal('logoutModal');
+            
             const signingOutMessage = currentLanguage === 'ar' ? 'جاري تسجيل الخروج...' : 'Signing out...';
             showToast(signingOutMessage, 'info');
-            
+            const form = document.getElementById('menu-logout');
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                });
+
+                if (response.redirected) {
+                    window.location.href = response.url;
+                    return;
+                }
+
+                //const html = await response.text();
+                //// Try to extract error message from the returned HTML (if any)
+                //const parser = new DOMParser();
+                //const doc = parser.parseFromString(html, 'text/html');
+                //const validationSummary = doc.querySelector('.validation-summary-errors, .text-danger, #loginError');
+                //if (validationSummary) {
+                //    errorDiv.textContent = validationSummary.textContent.trim();
+                //} else {
+                //    // fallback: replace form with returned HTML
+                //    form.outerHTML = html;
+                //}
+                    const successMessage = currentLanguage === 'ar' ? 'تم تسجيل الخروج بنجاح' : 'You have been signed out successfully';
+                    showToast(successMessage, 'success');
+                    // In a real application, you would redirect to login page
+                    // window.location.href = '/login';
+
+            } catch (err) {
+                //errorDiv.textContent = 'An error occurred. Please try again.';
+            } finally {
+                //button.disabled = false;
+                //button.innerHTML = originalText;
+            }
             // Simulate logout process
-            setTimeout(() => {
-                const successMessage = currentLanguage === 'ar' ? 'تم تسجيل الخروج بنجاح' : 'You have been signed out successfully';
-                showToast(successMessage, 'success');
-                // In a real application, you would redirect to login page
-                // window.location.href = '/login';
-            }, 1000);
+            //setTimeout(() => {
+            //    const successMessage = currentLanguage === 'ar' ? 'تم تسجيل الخروج بنجاح' : 'You have been signed out successfully';
+            //    showToast(successMessage, 'success');
+            //    // In a real application, you would redirect to login page
+            //    // window.location.href = '/login';
+            //}, 1000);
         }
 
         // Toast Notification System

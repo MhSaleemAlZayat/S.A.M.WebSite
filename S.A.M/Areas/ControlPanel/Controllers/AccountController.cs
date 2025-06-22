@@ -158,7 +158,7 @@ public class AccountController : ControlPanelBaseController
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction("Login", "Account");
+        return Redirect("/ControlPanel/Account/Login");
     }
 
     // GET: /Account/ChangePassword
