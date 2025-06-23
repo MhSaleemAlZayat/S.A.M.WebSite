@@ -3,6 +3,7 @@ using S.A.M.Helper.Configuration;
 using S.A.M.Helper.Email;
 using S.A.M.Helper.Email.EmailSender;
 using S.A.M.Helper.Services.AspIdentity.Role;
+using S.A.M.Helper.Services.AspIdentity.UserInfo;
 using S.A.M.Helper.Services.AspIdentity.UserManager;
 using S.A.M.Helper.Services.AspIdentity.UserRole;
 using S.A.M.Models.Configurations;
@@ -25,6 +26,7 @@ public static class ServiceConfigure
         builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
 
         builder.Services.AddHttpContextAccessor();
+        builder.Services.AddScoped<IUserInfoService, UserInfoService>();
 
         builder.Services.AddScoped<IEmailSenderSerivce, EmailSenderSerivce>();
         builder.Services.AddScoped<IRoleManagerService, RoleManagerService>();
