@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject S.A.M.Helper.Services.AspIdentity.UserInfo.IUserInfoService UserInfoService
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
@@ -91,8 +92,8 @@
             <div class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="/placeholder.svg?height=32&width=32" alt="Admin" class="w-8 h-8 rounded-full">
                 <div class="flex-1">
-                    <p class="text-sm font-medium" data-translate="admin_user">Admin User</p>
-                    <p class="text-xs text-gray-400">admin@sam.org</p>
+                    <p class="text-sm font-medium" @* data-translate="admin_user" *@>@UserInfoService.UserName</p>
+                    <p class="text-xs text-gray-400">@UserInfoService.UserEmail</p>
                 </div>
                 <button class="text-gray-400 hover:text-white transition-colors" onclick="confirmLogout()">
                     <i class="fas fa-sign-out-alt"></i>
@@ -297,8 +298,8 @@
                                 <img src="/placeholder.svg?height=32&width=32" alt="Profile" class="w-8 h-8 rounded-full">
                             </div>
                             <div class="hidden md:block text-left rtl:text-right">
-                                <p class="text-sm font-medium text-gray-800 dark:text-white" data-translate="admin_user">Admin User</p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400" data-translate="administrator">Administrator</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-white" @* data-translate="admin_user" *@>@UserInfoService.UserName</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400" @* data-translate="administrator" *@>@UserInfoService.UserEmail</p>
                             </div>
                             <i class="fas fa-chevron-down text-sm"></i>
                         </button>
@@ -312,7 +313,7 @@
                                         <img src="/placeholder.svg?height=48&width=48" alt="Profile" class="w-12 h-12 rounded-full">
                                     </div>
                                     <div class="flex-1">
-                                        <h3 class="text-sm font-semibold text-gray-800 dark:text-white" data-translate="admin_user">Admin User</h3>
+                                        <h3 class="text-sm font-semibold text-gray-800 dark:text-white" @* data-translate="admin_user" *@>@UserInfoService.UserName</h3>
                                         <p class="text-xs text-gray-600 dark:text-gray-400">admin@sam.org</p>
                                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 mt-1">
                                             <span class="w-2 h-2 bg-green-400 rounded-full mr-1 rtl:mr-0 rtl:ml-1"></span>
@@ -431,7 +432,7 @@
                         <img src="/placeholder.svg?height=80&width=80" alt="Profile" class="w-20 h-20 rounded-full">
                     </div>
                     <div>
-                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white" data-translate="admin_user">Admin User</h4>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-white" @* data-translate="admin_user" *@>@UserInfoService.UserName</h4>
                         <p class="text-gray-600 dark:text-gray-400">admin@sam.org</p>
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 mt-2">
                             <span class="w-2 h-2 bg-green-400 rounded-full mr-2 rtl:mr-0 rtl:ml-2"></span>
@@ -445,7 +446,8 @@
                         <div class="space-y-3">
                             <div>
                                 <p class="text-sm text-gray-600 dark:text-gray-400" data-translate="full_name">Full Name</p>
-                                <p class="font-medium text-gray-800 dark:text-white" data-translate="admin_user">Admin User</p>
+                                <p class="font-medium text-gray-800 dark:text-white" @* data-translate="admin_user" *@>@UserInfoService.UserName</h4>
+                                <p class="text-gray-600 dark:text-gray-400">admin@sam.org</p></p>
                             </div>
                             <div>
                                 <p class="text-sm text-gray-600 dark:text-gray-400" data-translate="email">Email</p>
@@ -453,7 +455,7 @@
                             </div>
                             <div>
                                 <p class="text-sm text-gray-600 dark:text-gray-400" data-translate="role">Role</p>
-                                <p class="font-medium text-gray-800 dark:text-white" data-translate="administrator">Administrator</p>
+                                <p class="font-medium text-gray-800 dark:text-white" @* data-translate="administrator" *@>@UserInfoService.UserName</p>
                             </div>
                         </div>
                     </div>
