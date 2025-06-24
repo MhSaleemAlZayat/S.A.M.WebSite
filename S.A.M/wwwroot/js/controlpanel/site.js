@@ -480,14 +480,14 @@
             // Navigation functionality
             navItems.forEach(item => {
                 item.addEventListener('click', (e) => {
-                    console.log('Nav item clicked:', item.dataset.section);
-                    e.preventDefault();
+                    console.log('Nav item clicked:', item.dataset.section + ' - href: ' + item.getAttribute('href'));
+                    //e.preventDefault();
                     
                     // Remove active class from all nav items
                     navItems.forEach(nav => nav.classList.remove('active'));
                     
                     // Add active class to clicked item
-                    item.classList.add('active');
+                    //item.classList.add('active');
                     
                     // Hide all content sections
                     contentSections.forEach(section => section.classList.add('hidden'));
@@ -508,8 +508,11 @@
                         sidebar.classList.add('-translate-x-full');
                         sidebarOverlay.classList.add('hidden');
                     }
+
+                    
                 });
             });
+            
 
             // Mobile sidebar toggle
             if (sidebarToggle && sidebar && sidebarOverlay) {
@@ -533,6 +536,12 @@
                 } else if (sidebar) {
                     sidebar.classList.add('-translate-x-full');
                 }
+            });
+
+            navItems.forEach(nav => nav.classList.remove('active'));
+            navItems.forEach(item => {
+                if (window.location.pathname === item.getAttribute('href'))
+                    item.classList.add('active');
             });
             
             console.log('Sidebar initialized');
