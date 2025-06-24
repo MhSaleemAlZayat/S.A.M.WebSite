@@ -311,7 +311,7 @@
         };
 
         // Current language
-        let currentLanguage = localStorage.getItem('language') || 'en';
+        let currentLanguage = localStorage.getItem('language') || 'ar';
 
         // Initialize all functionality when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
