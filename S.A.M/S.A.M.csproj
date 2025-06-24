@@ -48,4 +48,9 @@
     <Folder Include="wwwroot\js\public\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml.user" />
+    <None Include="Properties\PublishProfiles\SAM-WebSite.pubxml.user" />
+  </ItemGroup>
+
 </Project>
