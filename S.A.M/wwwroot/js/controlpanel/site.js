@@ -25,6 +25,7 @@
                 header: "Header",
                 footer: "Footer",
                 comments: "Comments",
+                categories : "Cateogries",
                 // Header
                 search: "Search...",
                 notifications: "Notifications",
@@ -176,6 +177,7 @@
                 header: "الترويسة",
                 footer: "التذييل",
                 comments: "التعليقات",
+                categories: "التصنيفات",
                 // Header
                 search: "البحث...",
                 notifications: "الإشعارات",
