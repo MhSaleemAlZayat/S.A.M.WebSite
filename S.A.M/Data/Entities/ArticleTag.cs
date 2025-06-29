@@ -5,7 +5,7 @@ namespace S.A.M.Data.Entities
         public int ArticleId { get; set; }
         public Article Article { get; set; }
 
-        public int TagId { get; set; }
+        public short TagId { get; set; }
         public Tag Tag { get; set; }
     }
 }

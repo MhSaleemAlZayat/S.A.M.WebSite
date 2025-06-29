@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using S.A.M.Data;
 
@@ -11,9 +12,11 @@ using S.A.M.Data;
 namespace S.A.M.Data.Migrations
 {
     [DbContext(typeof(SAMDbContext))]
-    partial class SAMDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250629005930_Initial-Migration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

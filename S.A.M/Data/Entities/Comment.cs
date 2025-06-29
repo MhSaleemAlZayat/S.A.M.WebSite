@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace S.A.M.Data.Entities
@@ -6,7 +5,7 @@ namespace S.A.M.Data.Entities
     public class Comment
     {
         public int Id { get; set; }
-        public int ArticleId { get; set; }
+        public int ArticleTranslationId { get; set; }
 
         [Required]
         public string Content { get; set; } = string.Empty;

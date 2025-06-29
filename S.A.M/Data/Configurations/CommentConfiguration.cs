@@ -12,12 +12,14 @@ namespace S.A.M.Data.Configurations
             builder.Property(c => c.Content).IsRequired();
             builder.Property(c => c.CreatedBy).HasMaxLength(32);
             builder.Property(c => c.UpdatedBy).HasMaxLength(32);
-            builder.Property(c => c.CreatedAt)
-                   .HasDefaultValueSql("GETUTCDATE()");
-            builder.HasOne<Article>()
+            builder.Property(c => c.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
+            builder.Property(c => c.IsDeleted).HasDefaultValueSql("0");
+            builder.Property(c => c.Active).HasDefaultValueSql("1");
+
+            builder.HasOne<ArticleTranslation>()
                    .WithMany()
-                   .HasForeignKey(c => c.ArticleId)
-                   .OnDelete(DeleteBehavior.Cascade);
+                   .HasForeignKey(c => c.ArticleTranslationId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

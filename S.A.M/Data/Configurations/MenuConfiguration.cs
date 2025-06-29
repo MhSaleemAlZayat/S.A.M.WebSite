@@ -10,11 +10,12 @@ namespace S.A.M.Data.Configurations
         {
             builder.HasKey(m => m.Id);
             builder.Property(m => m.Name).IsRequired().HasMaxLength(128);
-            builder.Property(m => m.Location).HasMaxLength(64);
+            builder.Property(m => m.LocationId).IsRequired();
             builder.Property(m => m.CreatedBy).HasMaxLength(32);
             builder.Property(m => m.UpdatedBy).HasMaxLength(32);
-            builder.Property(m => m.CreatedAt)
-                   .HasDefaultValueSql("GETUTCDATE()");
+            builder.Property(m => m.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
+            builder.Property(c => c.IsDeleted).HasDefaultValueSql("0");
+            builder.Property(c => c.Active).HasDefaultValueSql("1");
         }
     }
 }
