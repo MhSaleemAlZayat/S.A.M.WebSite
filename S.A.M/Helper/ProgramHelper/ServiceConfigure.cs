@@ -26,6 +26,8 @@ public static class ServiceConfigure
         builder.Services.AddHostedService<QueuedHostedService>();
         builder.Services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
 
+        builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddScoped<IUserInfoService, UserInfoService>();
 

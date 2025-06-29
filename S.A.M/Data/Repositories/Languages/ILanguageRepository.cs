@@ -10,4 +10,7 @@ public interface ILanguageRepository
     Task<Language> AddLanguageAsync(Language language);
     Task<Language> UpdateLanguageAsync(Language language);
     Task<bool> DeleteLanguageAsync(byte id);
+
+    Task<bool> ChangeDefaultLanguageAsync(byte id);
+    Task<Language> ChangeLanguageActivationStatusAsync(byte id);
 }
