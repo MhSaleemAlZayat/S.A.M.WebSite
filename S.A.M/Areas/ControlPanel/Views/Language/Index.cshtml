@@ -1,0 +1,68 @@
+﻿@model List<LanguageModel>
+
+<!-- Categories  Management Section -->
+<div id="content-section" class="content-section fade-in">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white" data-translate="languages_management">إدارة المحتوى</h2>
+        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+            <i class="fas fa-plus mr-2 rtl:mr-0 rtl:ml-2"></i><span data-translate="add_new_language">إضافة مقال جديد</span>
+        </button>
+    </div>
+
+    
+    <!-- Language Table -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+        <table class="w-full" id="language-table">
+            <thead class="bg-gray-50 dark:bg-gray-700">
+                <tr>
+                    <th class="px-6 py-3 text-left rtl:text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" @* data-translate="title" *@>اللغة</th>
+                    <th class="px-6 py-3 text-left rtl:text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" @* data-translate="category" *@>الكود</th>
+                    <th class="px-6 py-3 text-left rtl:text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" @* data-translate="language" *@>نشط</th>
+                    <th class="px-6 py-3 text-left rtl:text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" @* data-translate="status" *@>اللغة الأساسية</th>
+                    <th class="px-6 py-3 text-left rtl:text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" @* data-translate="date" *@>تاريخ الإنشاء</th>
+                    <th class="px-6 py-3 text-left rtl:text-right text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider" @* data-translate="date" *@>تاريخ التحديث</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                @foreach (var language in Model)
+                {
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900 dark:text-white" @* data-translate="democratic_reforms_syria" *@>@language.Name</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm font-medium text-gray-900 dark:text-white" @* data-translate="democratic_reforms_syria" *@>@language.Code</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white language-activation-status" @* data-translate="arabic" *@>
+                            @if (language.Active)
+                            {
+                                <a id="change-activation-status-@language.Id" onclick="LanguageIndex.changeActivationStatus(@language.Id, '@language.Name')" href="javascript:void(0);"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" data-translate="record_active">نشط</span></a>
+                            }
+                            else
+                            {
+                                <a id="change-activation-status-@language.Id" onclick="LanguageIndex.changeActivationStatus(@language.Id, '@language.Name')" href="javascript:void(0);"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800" data-translate="record_inactive">متوقف</span></a>
+                            }
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap default-language">
+                            @if (language.Default)
+                            {
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800" data-translate="record_default" data-id="@language.Id">أساسي</span>
+                            }
+                            else
+                            {
+                                <a id="change-default-language-@language.Id" onclick="LanguageIndex.changeDefaultLanguage(@language.Id, '@language.Name')" href="javascript:void(0);"><span class="px-2 inline-flex text-xs leading0-5 font-semibold rounded-full bg-gray-100 text-black-800" data-translate="record_not_default">غير أساسي</span></a>
+                            }
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">@language.CreatedAt</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">@Html.Raw(DateTime.MinValue ==  language.UpdatedAt ? "لم يتم التحديث" : language.UpdatedAt) </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/common/tailwind.modal.js"></script>
+    <script src="~/js/controlpanel/language.index.js"></script>
+}

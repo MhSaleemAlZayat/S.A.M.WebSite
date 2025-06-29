@@ -11,6 +11,7 @@
                 main: "Main",
                 dashboard: "Dashboard",
                 articles_management: "Articles Management",
+                languages_management: "Languages Management",
                 media_library: "Media Library",
                 pages_management : "Pages Management",
                 user_management: "User Management",
@@ -72,6 +73,7 @@
                 
                 // Content Management
                 add_new_article: "Add New Article",
+                add_new_language : "Add New Language",
                 all_categories: "All Categories",
                 politics: "Politics",
                 education: "Education",
@@ -83,6 +85,10 @@
                 french: "French",
                 all_status: "All Status",
                 published: "Published",
+                record_active: "Active",
+                record_inactive: "Inactive",
+                record_default: "Default",
+                record_not_default: "Not Default",
                 draft: "Draft",
                 pending: "Pending",
                 search_articles: "Search articles...",
@@ -163,6 +169,7 @@
                 main: "الرئيسية",
                 dashboard: "لوحة المعلومات",
                 articles_management: "إدارة المقالات",
+                languages_management : "إدارة اللغات",
                 media_library: "مكتبة الوسائط",
                 pages_management: "إدارة الصفحات",
                 user_management: "إدارة المستخدمين",
@@ -224,6 +231,7 @@
                 
                 // Content Management
                 add_new_article: "إضافة مقال جديد",
+                add_new_language: "إضافة لغة جديدة",
                 all_categories: "جميع الفئات",
                 politics: "السياسة",
                 education: "التعليم",
@@ -235,6 +243,10 @@
                 french: "الفرنسية",
                 all_status: "جميع الحالات",
                 published: "منشور",
+                record_active: "نشط",
+                record_inactive: "متوقف",
+                record_default: "أساسي",
+                record_not_default: "غير أساسي",
                 draft: "مسودة",
                 pending: "في الانتظار",
                 search_articles: "البحث في المقالات...",

@@ -120,4 +120,75 @@ public class LanguageRepository : ILanguageRepository
         }
     }
 
+    public async Task<bool> ChangeDefaultLanguageAsync(byte id)
+    {
+        try
+        {
+            var language = await _language.FindAsync(id);
+            if (language == null || language.IsDeleted)
+            {
+                _logger.LogWarning("Attempted to delete a non-existing or already deleted language with ID {Id}", id);
+                return false;
+            }
+
+            var defaultLanguages = await _language.Where(l => !l.IsDeleted && l.Default).SingleOrDefaultAsync();
+            if (defaultLanguages != null)
+            {
+                defaultLanguages.Default = false;
+                defaultLanguages.UpdatedAt = DateTime.UtcNow;
+            }
+
+            language.Default = true;
+            language.UpdatedAt = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error changing default language");
+            throw;
+        }
+    }
+
+    public async Task<Language> ChangeLanguageActivationStatusAsync(byte id)
+    {
+        try
+        {
+            var language = await _language.FindAsync(id);
+            if (language == null || language.IsDeleted)
+            {
+                _logger.LogWarning("Attempted to change activation status of a non-existing or already deleted language with ID {Id}", id);
+                return null;
+            }
+
+            // Check if deactivating and it's the last active language
+            if (language.Active)
+            {
+                var activeLanguagesCount = await _language.CountAsync(l => l.Active && !l.IsDeleted);
+                if (activeLanguagesCount == 1 && language.Active)
+                {
+                    _logger.LogWarning("Attempted to deactivate the last active language with ID {Id}", id);
+                    throw new InvalidOperationException("Cannot deactivate the last active language.");
+                }
+            }
+
+            language.Active = !language.Active;
+
+            language.UpdatedAt = DateTime.UtcNow;
+
+            _language.Update(language);
+
+            await _context.SaveChangesAsync();
+
+            return language;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error changing language activation status");
+            throw;
+        }
+    }
+
 }
