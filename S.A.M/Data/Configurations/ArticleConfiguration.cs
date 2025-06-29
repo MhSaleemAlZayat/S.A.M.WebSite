@@ -9,18 +9,22 @@ namespace S.A.M.Data.Configurations
         public void Configure(EntityTypeBuilder<Article> builder)
         {
             builder.HasKey(a => a.Id);
-            builder.Property(a => a.Title).IsRequired().HasMaxLength(256);
-            builder.Property(a => a.Slug).IsRequired().HasMaxLength(256);
-            builder.Property(a => a.Content).IsRequired();
-            builder.Property(a => a.FeatureImageUrl).HasMaxLength(512);
-            builder.Property(a => a.AuthorId).HasMaxLength(64);
-            builder.Property(a => a.Status).IsRequired();
+
+            builder.Property(a => a.AuthorId).HasMaxLength(32);
+
             builder.Property(a => a.CreatedAt)
                    .HasDefaultValueSql("GETUTCDATE()");
+
             builder.HasOne<Category>()
                    .WithMany()
                    .HasForeignKey(a => a.CategoryId)
                    .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.HasMany(a => a.Translations)
+                .WithOne(ast => ast.Article)
+                .HasForeignKey(ast => ast.ArticleId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

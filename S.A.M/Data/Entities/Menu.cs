@@ -1,27 +1,18 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-
 namespace S.A.M.Data.Entities
 {
     public class Menu
     {
-        public int Id { get; set; }
-
-        [Required, MaxLength(128)]
-        public string Name { get; set; } = string.Empty;
-
-        [MaxLength(64)]
-        public string? Location { get; set; }
-
+        public byte Id { get; set; }
+        public string Name { get; set; }
+        public MenuLocation.MenuLocationEnum LocationId { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-
-        [MaxLength(32)]
         public string? CreatedBy { get; set; }
-        [MaxLength(32)]
         public string? UpdatedBy { get; set; }
-
         public bool IsDeleted { get; set; } = false;
         public bool Active { get; set; } = true;
+        public virtual ICollection<MenuItem> MenuItems { get; set; } = new List<MenuItem>();
+        public MenuLocation MenuLocation { get; set; }
+
     }
 }

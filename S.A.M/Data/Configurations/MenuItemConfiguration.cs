@@ -9,19 +9,20 @@ namespace S.A.M.Data.Configurations
         public void Configure(EntityTypeBuilder<MenuItem> builder)
         {
             builder.HasKey(mi => mi.Id);
-            builder.Property(mi => mi.Title).IsRequired().HasMaxLength(128);
-            builder.Property(mi => mi.Url).HasMaxLength(512);
+            builder.Property(mi => mi.MenuId).IsRequired();
+            builder.Property(mi => mi.MenuItemTypeId).IsRequired();
             builder.Property(mi => mi.CssClass).HasMaxLength(64);
-            builder.Property(mi => mi.Target).HasMaxLength(32);
-            builder.Property(mi => mi.Icon).HasMaxLength(128);
             builder.Property(mi => mi.CreatedBy).HasMaxLength(32);
             builder.Property(mi => mi.UpdatedBy).HasMaxLength(32);
-            builder.Property(mi => mi.CreatedAt)
-                   .HasDefaultValueSql("GETUTCDATE()");
+            builder.Property(mi => mi.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
+            builder.Property(mi => mi.IsDeleted).HasDefaultValueSql("0");
+            builder.Property(mi => mi.Active).HasDefaultValueSql("1");
+
             builder.HasOne<Menu>()
                    .WithMany()
                    .HasForeignKey(mi => mi.MenuId)
                    .OnDelete(DeleteBehavior.Cascade);
+
             builder.HasOne<MenuItem>()
                    .WithMany()
                    .HasForeignKey(mi => mi.ParentId)
