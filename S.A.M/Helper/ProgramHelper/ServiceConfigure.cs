@@ -1,4 +1,5 @@
-﻿using S.A.M.Helper.BackgroundQueue;
+﻿using S.A.M.Data.Repositories.Languages;
+using S.A.M.Helper.BackgroundQueue;
 using S.A.M.Helper.Configuration;
 using S.A.M.Helper.Email;
 using S.A.M.Helper.Email.EmailSender;
@@ -32,6 +33,8 @@ public static class ServiceConfigure
         builder.Services.AddScoped<IRoleManagerService, RoleManagerService>();
         builder.Services.AddScoped<IUserManagerService, UserManagerService>();
         builder.Services.AddScoped<IUserRoleService, UserRoleService>();
+
+        builder.Services.AddScoped<ILanguageRepository, LanguageRepository>();
     }
 
 }
