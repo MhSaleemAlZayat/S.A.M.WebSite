@@ -6,6 +6,7 @@ public interface ILanguageRepository
 {
     Task<IEnumerable<Language>> GetAllLanguagesAsync();
     Task<Language?> GetLanguageByIdAsync(byte id);
+    Task<Language> GetDefaultLanguageAsync();
     Task<Language?> GetLanguageByCodeAsync(string code);
     Task<Language> AddLanguageAsync(Language language);
     Task<Language> UpdateLanguageAsync(Language language);

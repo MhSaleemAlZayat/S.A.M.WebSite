@@ -28,6 +28,19 @@ public class LanguageRepository : ILanguageRepository
         }
     }
 
+    public async Task<Language> GetDefaultLanguageAsync()
+    {
+        try
+        {
+            return await _language.Where(l => !l.IsDeleted && l.Default).SingleOrDefaultAsync();
+        }
+        catch (Exception ex)
+        {
+
+            _logger.LogError(ex, "Error retrieving default language.");
+            throw;
+        }
+    }
     public async Task<Language?> GetLanguageByIdAsync(byte id)
     {
         try

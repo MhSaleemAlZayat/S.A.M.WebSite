@@ -12,7 +12,7 @@ using S.A.M.Data;
 namespace S.A.M.Data.Migrations
 {
     [DbContext(typeof(SAMDbContext))]
-    [Migration("20250629005930_Initial-Migration")]
+    [Migration("20250702141806_Initial-Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -1576,10 +1576,12 @@ namespace S.A.M.Data.Migrations
 
             modelBuilder.Entity("S.A.M.Data.Entities.Category", b =>
                 {
-                    b.HasOne("S.A.M.Data.Entities.Category", null)
+                    b.HasOne("S.A.M.Data.Entities.Category", "Parent")
                         .WithMany()
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Parent");
                 });
 
             modelBuilder.Entity("S.A.M.Data.Entities.CategoryTranslation", b =>

@@ -1573,10 +1573,12 @@ namespace S.A.M.Data.Migrations
 
             modelBuilder.Entity("S.A.M.Data.Entities.Category", b =>
                 {
-                    b.HasOne("S.A.M.Data.Entities.Category", null)
+                    b.HasOne("S.A.M.Data.Entities.Category", "Parent")
                         .WithMany()
                         .HasForeignKey("ParentId")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Parent");
                 });
 
             modelBuilder.Entity("S.A.M.Data.Entities.CategoryTranslation", b =>
