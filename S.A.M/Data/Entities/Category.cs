@@ -12,5 +12,6 @@ namespace S.A.M.Data.Entities
         public bool Active { get; set; } = true;
 
         public ICollection<CategoryTranslation> Translations { get; set; } = new List<CategoryTranslation>();
+        public Category Parent { get; set; }
     }
 }

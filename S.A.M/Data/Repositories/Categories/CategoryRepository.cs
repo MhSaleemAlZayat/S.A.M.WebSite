@@ -22,7 +22,9 @@ public class CategoryRepository : ICategoryRepository
         try
         {
             return await _categories
-                .Include(c => c.Translations.Where(t => !t.IsDeleted).ToList()).Where(c => !c.IsDeleted)
+                .Include(c => c.Translations)
+                .Include(c => c.Parent)
+                .Where(c => !c.IsDeleted)
                 .ToListAsync();
         }
         catch (Exception ex)
@@ -37,7 +39,7 @@ public class CategoryRepository : ICategoryRepository
         try
         {
             return await _categories
-                .Include(c => c.Translations.Where(t => !t.IsDeleted).ToList())
+                .Include(c => c.Translations)
                 .FirstOrDefaultAsync(c => c.Id == id && !c.IsDeleted);
         }
         catch (Exception ex)
@@ -52,7 +54,7 @@ public class CategoryRepository : ICategoryRepository
         try
         {
             return await _categories
-                .Include(c => c.Translations.Where(t => !t.IsDeleted && t.Name == name).ToList())
+                .Include(c => c.Translations)
                 .FirstOrDefaultAsync(c => !c.IsDeleted);
         }
         catch (Exception ex)

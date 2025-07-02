@@ -15,7 +15,7 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
         builder.Property(c => c.IsDeleted).HasDefaultValueSql("0");
         builder.Property(c => c.Active).HasDefaultValueSql("1");
 
-        builder.HasOne<Category>()
+        builder.HasOne(c => c.Parent)
             .WithMany()
             .HasForeignKey(c => c.ParentId)
             .OnDelete(DeleteBehavior.Restrict);
