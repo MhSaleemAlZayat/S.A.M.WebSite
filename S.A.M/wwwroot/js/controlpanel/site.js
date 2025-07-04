@@ -73,6 +73,7 @@
                 
                 // Content Management
                 add_new_article: "Add New Article",
+                add_new_category: "Add New Category",
                 add_new_language : "Add New Language",
                 all_categories: "All Categories",
                 politics: "Politics",
@@ -160,7 +161,10 @@
                 reports_description: "Generate and view various reports about website performance and user activity.",
                 language_management: "Language Management",
                 language_management_description: "Manage multi-language content and translation settings.",
-                settings_description: "Configure website settings, preferences, and system options."
+                settings_description: "Configure website settings, preferences, and system options.",
+
+                //Categories
+                select_category: "Select Category"
             },
             ar: {
                 // Navigation
@@ -231,6 +235,7 @@
                 
                 // Content Management
                 add_new_article: "إضافة مقال جديد",
+                add_new_category: "إضافة تصينف جديد",
                 add_new_language: "إضافة لغة جديدة",
                 all_categories: "جميع الفئات",
                 politics: "السياسة",
@@ -318,7 +323,10 @@
                 reports_description: "إنشاء وعرض تقارير مختلفة حول أداء الموقع ونشاط المستخدمين.",
                 language_management: "إدارة اللغات",
                 language_management_description: "إدارة المحتوى متعدد اللغات وإعدادات الترجمة.",
-                settings_description: "تكوين إعدادات الموقع والتفضيلات وخيارات النظام."
+                settings_description: "تكوين إعدادات الموقع والتفضيلات وخيارات النظام.",
+
+                //Categories
+                select_category: "اختر التصنيف"
             }
         };
 
@@ -812,14 +820,14 @@
             });
 
             // Handle form submissions
-            document.addEventListener('submit', (e) => {
-                e.preventDefault();
-                if (e.target.closest('#changePasswordModal')) {
-                    const message = currentLanguage === 'ar' ? 'تم تحديث كلمة المرور بنجاح!' : 'Password updated successfully!';
-                    showToast(message);
-                    closeModal('changePasswordModal');
-                }
-            });
+            //document.addEventListener('submit', (e) => {
+            //    e.preventDefault();
+            //    if (e.target.closest('#changePasswordModal')) {
+            //        const message = currentLanguage === 'ar' ? 'تم تحديث كلمة المرور بنجاح!' : 'Password updated successfully!';
+            //        showToast(message);
+            //        closeModal('changePasswordModal');
+            //    }
+            //});
             
             console.log('Modals initialized');
         }

@@ -9,8 +9,8 @@ namespace S.A.M.Data.Configurations
         public void Configure(EntityTypeBuilder<Tag> builder)
         {
             builder.HasKey(t => t.Id);
-            builder.Property(t => t.CreatedBy).HasMaxLength(32);
-            builder.Property(t => t.UpdatedBy).HasMaxLength(32);
+            builder.Property(t => t.CreatedBy).HasMaxLength(36);;
+            builder.Property(t => t.UpdatedBy).HasMaxLength(36);;
             builder.Property(t => t.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
             builder.Property(c => c.IsDeleted).HasDefaultValueSql("0");
             builder.Property(c => c.Active).HasDefaultValueSql("1");

@@ -15,7 +15,7 @@ namespace S.A.M.Data.Configurations
             builder.Property(m => m.Description).HasMaxLength(512);
             builder.Property(m => m.AlternativeText).HasMaxLength(256);
             builder.Property(m => m.ContentType).HasMaxLength(128);
-            builder.Property(m => m.CreatedBy).HasMaxLength(32);
+            builder.Property(m => m.CreatedBy).HasMaxLength(36);;
             builder.Property(m => m.CreatedAt)
                    .HasDefaultValueSql("GETUTCDATE()");
         }

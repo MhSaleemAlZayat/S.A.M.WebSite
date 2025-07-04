@@ -13,8 +13,8 @@ namespace S.A.M.Data.Configurations
             builder.Property(p => p.Slug).IsRequired().HasMaxLength(256);
             builder.Property(p => p.Content).IsRequired();
             builder.Property(p => p.FeatureImageUrl).HasMaxLength(512);
-            builder.Property(p => p.CreatedBy).HasMaxLength(32);
-            builder.Property(p => p.UpdatedBy).HasMaxLength(32);
+            builder.Property(p => p.CreatedBy).HasMaxLength(36);;
+            builder.Property(p => p.UpdatedBy).HasMaxLength(36);;
             builder.Property(p => p.CreatedAt)
                    .HasDefaultValueSql("GETUTCDATE()");
         }
