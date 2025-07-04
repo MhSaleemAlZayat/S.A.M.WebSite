@@ -150,4 +150,20 @@ public class CategoryRepository : ICategoryRepository
         }
     }
 
+    public async Task<bool> CheckSlugUniqueness(string slug, byte languageId)
+    {
+        try
+        {
+            // Assuming that the slug is stored in the translations
+            return !await _categories.Where(c => c.Translations.Any(t => t.Slug == slug && t.LanguageId == languageId && !c.IsDeleted))
+                .AnyAsync();
+
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error checking slug uniqueness");
+            throw;
+        }
+    }
+
 }

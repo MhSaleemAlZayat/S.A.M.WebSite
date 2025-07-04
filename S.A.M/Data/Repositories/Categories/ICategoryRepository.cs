@@ -13,6 +13,7 @@ public interface ICategoryRepository
 
     Task<Category> ChangeCategoryActivationStatusAsync(short id);
 
+    Task<bool> CheckSlugUniqueness(string slug, byte languageId);
 
 
 }
