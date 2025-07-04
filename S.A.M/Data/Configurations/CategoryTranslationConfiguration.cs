@@ -14,8 +14,8 @@ public class CategoryTranslationConfiguration : IEntityTypeConfiguration<Categor
         builder.Property(c => c.Description).HasMaxLength(512);
         builder.Property(c => c.CategoryId).IsRequired();
         builder.Property(c => c.LanguageId).IsRequired();
-        builder.Property(c => c.CreatedBy).HasMaxLength(32);
-        builder.Property(c => c.UpdatedBy).HasMaxLength(32);
+        builder.Property(c => c.CreatedBy).HasMaxLength(36);;
+        builder.Property(c => c.UpdatedBy).HasMaxLength(36);;
         builder.Property(c => c.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
         builder.Property(c => c.IsDeleted).HasDefaultValueSql("0");
         builder.Property(c => c.Active).HasDefaultValueSql("1");

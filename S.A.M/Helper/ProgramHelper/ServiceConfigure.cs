@@ -39,7 +39,7 @@ public static class ServiceConfigure
         builder.Services.Scan(b => b.FromAssemblies(typeof(IUniquenessCheckerPolicy).Assembly)
               .AddClasses(c => c.AssignableTo<IUniquenessCheckerPolicy>())
               .AsImplementedInterfaces()
-              .WithSingletonLifetime());
+              .WithScopedLifetime());
 
         builder.Services.AddScoped<IEmailSenderSerivce, EmailSenderSerivce>();
         builder.Services.AddScoped<IRoleManagerService, RoleManagerService>();

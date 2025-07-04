@@ -14,8 +14,8 @@ public class LanguageConfiguration : IEntityTypeConfiguration<Language>
         builder.Property(c => c.Culture).IsRequired().HasMaxLength(8);
         builder.Property(c => c.Default).IsRequired().HasDefaultValueSql("0");
         builder.Property(c => c.SortOrder).IsRequired().HasDefaultValueSql("1");
-        builder.Property(c => c.CreatedBy).IsRequired().HasMaxLength(32);
-        builder.Property(c => c.UpdatedBy).HasMaxLength(32);
+        builder.Property(c => c.CreatedBy).IsRequired().HasMaxLength(36);;
+        builder.Property(c => c.UpdatedBy).HasMaxLength(36);;
         builder.Property(c => c.CreatedAt).IsRequired().HasDefaultValueSql("GETUTCDATE()");
         builder.Property(c => c.IsDeleted).HasDefaultValueSql("0");
         builder.Property(c => c.Active).HasDefaultValueSql("1");

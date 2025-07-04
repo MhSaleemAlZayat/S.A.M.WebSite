@@ -9,8 +9,8 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     public void Configure(EntityTypeBuilder<Category> builder)
     {
         builder.HasKey(c => c.Id);
-        builder.Property(c => c.CreatedBy).HasMaxLength(32);
-        builder.Property(c => c.UpdatedBy).HasMaxLength(32);
+        builder.Property(c => c.CreatedBy).HasMaxLength(36); ;
+        builder.Property(c => c.UpdatedBy).HasMaxLength(36); ;
         builder.Property(c => c.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
         builder.Property(c => c.IsDeleted).HasDefaultValueSql("0");
         builder.Property(c => c.Active).HasDefaultValueSql("1");

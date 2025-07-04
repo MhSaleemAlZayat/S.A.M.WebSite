@@ -12,8 +12,8 @@ namespace S.A.M.Data.Configurations
             builder.Property(mi => mi.MenuId).IsRequired();
             builder.Property(mi => mi.MenuItemTypeId).IsRequired();
             builder.Property(mi => mi.CssClass).HasMaxLength(64);
-            builder.Property(mi => mi.CreatedBy).HasMaxLength(32);
-            builder.Property(mi => mi.UpdatedBy).HasMaxLength(32);
+            builder.Property(mi => mi.CreatedBy).HasMaxLength(36);;
+            builder.Property(mi => mi.UpdatedBy).HasMaxLength(36);;
             builder.Property(mi => mi.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
             builder.Property(mi => mi.IsDeleted).HasDefaultValueSql("0");
             builder.Property(mi => mi.Active).HasDefaultValueSql("1");

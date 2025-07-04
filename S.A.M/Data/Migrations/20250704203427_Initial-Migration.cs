@@ -35,8 +35,8 @@ namespace S.A.M.Data.Migrations
                     ParentId = table.Column<short>(type: "smallint", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "1")
                 },
@@ -62,9 +62,9 @@ namespace S.A.M.Data.Migrations
                     SortOrder = table.Column<byte>(type: "tinyint", nullable: false, defaultValueSql: "1"),
                     Default = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "1")
                 },
@@ -87,7 +87,7 @@ namespace S.A.M.Data.Migrations
                     AlternativeText = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     ContentType = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -157,8 +157,8 @@ namespace S.A.M.Data.Migrations
                     FeatureImageUrl = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -197,8 +197,8 @@ namespace S.A.M.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "1")
                 },
@@ -246,7 +246,7 @@ namespace S.A.M.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AuthorId = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    AuthorId = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
                     CategoryId = table.Column<short>(type: "smallint", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()")
                 },
@@ -274,8 +274,8 @@ namespace S.A.M.Data.Migrations
                     Description = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "1")
                 },
@@ -299,8 +299,8 @@ namespace S.A.M.Data.Migrations
                     LocationId = table.Column<byte>(type: "tinyint", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "1")
                 },
@@ -356,8 +356,8 @@ namespace S.A.M.Data.Migrations
                     Slug = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "1")
                 },
@@ -541,8 +541,8 @@ namespace S.A.M.Data.Migrations
                     CssClass = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: false),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "1"),
                     MenuId1 = table.Column<byte>(type: "tinyint", nullable: true)
@@ -614,8 +614,8 @@ namespace S.A.M.Data.Migrations
                     IsApproved = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(36)", maxLength: 36, nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "0"),
                     Active = table.Column<bool>(type: "bit", nullable: false, defaultValueSql: "1")
                 },

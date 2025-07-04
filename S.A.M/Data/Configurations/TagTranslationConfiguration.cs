@@ -13,8 +13,8 @@ namespace S.A.M.Data.Configurations
             builder.Property(t => t.Slug).HasMaxLength(128);
             builder.Property(t => t.TagId).IsRequired();
             builder.Property(t => t.LanguageId).IsRequired();
-            builder.Property(t => t.CreatedBy).HasMaxLength(32);
-            builder.Property(t => t.UpdatedBy).HasMaxLength(32);
+            builder.Property(t => t.CreatedBy).HasMaxLength(36);;
+            builder.Property(t => t.UpdatedBy).HasMaxLength(36);;
             builder.Property(t => t.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
             builder.Property(c => c.IsDeleted).HasDefaultValueSql("0");
             builder.Property(c => c.Active).HasDefaultValueSql("1");

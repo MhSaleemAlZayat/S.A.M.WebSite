@@ -10,7 +10,7 @@ namespace S.A.M.Data.Configurations
         {
             builder.HasKey(a => a.Id);
 
-            builder.Property(a => a.AuthorId).HasMaxLength(32);
+            builder.Property(a => a.AuthorId).HasMaxLength(36);;
 
             builder.Property(a => a.CreatedAt)
                    .HasDefaultValueSql("GETUTCDATE()");
