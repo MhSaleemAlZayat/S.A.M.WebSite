@@ -8,6 +8,8 @@ using S.A.M.Helper.Services.AspIdentity.Role;
 using S.A.M.Helper.Services.AspIdentity.UserInfo;
 using S.A.M.Helper.Services.AspIdentity.UserManager;
 using S.A.M.Helper.Services.AspIdentity.UserRole;
+using S.A.M.Helper.Slug;
+using S.A.M.Helper.Slug.UniquenessCheckerPolicies;
 using S.A.M.Models.Configurations;
 
 namespace S.A.M.Helper.ProgramHelper;
@@ -31,6 +33,13 @@ public static class ServiceConfigure
 
         builder.Services.AddHttpContextAccessor();
         builder.Services.AddScoped<IUserInfoService, UserInfoService>();
+
+        //Slug services
+        builder.Services.AddScoped<ISlugGenerator, SlugGeneratorService>();
+        builder.Services.Scan(b => b.FromAssemblies(typeof(IUniquenessCheckerPolicy).Assembly)
+              .AddClasses(c => c.AssignableTo<IUniquenessCheckerPolicy>())
+              .AsImplementedInterfaces()
+              .WithSingletonLifetime());
 
         builder.Services.AddScoped<IEmailSenderSerivce, EmailSenderSerivce>();
         builder.Services.AddScoped<IRoleManagerService, RoleManagerService>();
