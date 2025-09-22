@@ -1,0 +1,6 @@
+@SAM.Api_HostAddress = http://localhost:5195
+
+GET {{SAM.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
